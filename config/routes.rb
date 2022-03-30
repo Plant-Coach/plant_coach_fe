@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-
-  get '/dashboard', to: 'dashboard#index', constraints: {subdomain: 'plantcoach'}
+  resources :users, only: [:new, :create]
+  constraints subdomain: 'plantcoach' do
+    get '/dashboard', to: 'dashboard#index' #, constraints: {subdomain: 'plantcoach'}
+  end
 end

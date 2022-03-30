@@ -1,0 +1,12 @@
+{
+    "data": {
+        "id": "5",
+        "type": "user",
+        "attributes": {
+            "id": 5,
+            "name": "Joel Grant",
+            "email": "joel987@demo.com",
+            "zip_code": "90210"
+        }
+    }
+}

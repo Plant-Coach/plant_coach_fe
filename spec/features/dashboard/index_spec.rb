@@ -5,8 +5,9 @@ RSpec.describe 'Dashboard Page' do
     it 'loads' do
       Capybara.default_host = 'http://plantcoach.myappname.dev'
       visit dashboard_path(subdomain: 'plantcoach')
-
+      # visit '/plantcoach'
       expect(current_path).to eq(dashboard_path(subdomain: 'plantcoach'))
+      # expect(current_path).to eq('/plantcoach/dashboard')
     end
   end
 end
