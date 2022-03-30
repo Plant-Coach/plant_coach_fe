@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     user = UsersFacade.create_new_user(user_params.to_h)
     session[:user_id] = user.id
-    # require 'pry'; binding.pry
+    # Try to refactor this below: 
     redirect_to(subdomain: 'plantcoach', controller: 'dashboard', action: 'index')
   end
 
