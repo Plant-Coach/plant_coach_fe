@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Dashboard Page' do
-
   context 'when I visit my user dashboard' do
     it 'loads' do
       Capybara.default_host = 'http://plantcoach.myappname.dev'
