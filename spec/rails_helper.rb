@@ -70,3 +70,7 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+# Capybara.app_host = "http://myblog.lvh.me"
+# Capybara.configure do |config|
+#   config.always_include_port = true
+# end
