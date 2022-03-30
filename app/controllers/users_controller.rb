@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    
+    user = UsersFacade.create_new_user(user_params.to_h)
   end
 
   private
