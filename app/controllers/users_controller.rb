@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   def create
     user = UsersFacade.create_new_user(user_params.to_h)
     session[:user_id] = user.id
-    # Try to refactor this below: 
-    redirect_to(subdomain: 'plantcoach', controller: 'dashboard', action: 'index')
+    # Try to refactor this below:
+    redirect_to dashboard_url controller: 'dashboard', action: 'index'#, controller: 'dashboard', action: 'index')
   end
 
   private
