@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     user = UsersFacade.create_new_user(user_params.to_h)
     session[:user_id] = user.id
-    redirect_to "/plantcoach"
+    redirect_to "/dashboard"
   end
 
   private

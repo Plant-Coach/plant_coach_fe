@@ -27,7 +27,7 @@ RSpec.describe 'New Users Form' do
       fill_in :password_confirmation, with: "12345"
       click_button "Create Account"
 
-      expect(current_path).to eq("/plantcoach")
+      expect(current_path).to eq("/dashboard")
     end
   end
 end
