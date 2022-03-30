@@ -12,7 +12,7 @@ RSpec.describe 'Welcome Page' do
         visit root_path
 
         click_link "Go to Plant Coach"
-        expect(current_path).to eq(dashboard_path(subdomain: 'plantcoach'))
+        expect(current_path).to eq("/plantcoach")
       end
 
       it 'has a button to create an account' do
