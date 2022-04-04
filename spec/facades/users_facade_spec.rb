@@ -26,10 +26,18 @@ RSpec.describe UsersFacade do
 
       user_result = UsersFacade.create_new_user(user)
 
-      expect(user_result).to be_a User
-      expect(user_result.id).to be_an Integer
-      expect(user_result.name).to be_a String
-      expect(user_result.email).to be_a String
+      expect(user_result).to be_a Hash
+      expect(user_result).to have_key(:user)
+
+      expect(user_result[:user]).to be_a Hash
+      expect(user_result[:user]).to have_key(:data)
+
+      expect(user_result[:user][:data]).to be_a Hash
+      expect(user_result[:user][:data]).to have_key(:attributes)
+      expect(user_result[:user][:data]).to have_key(:id)
+      expect(user_result[:user][:data]).to have_key(:type)
+
+      expect(user_result[:user][:data][:attributes]).to be_a Hash
     end
   end
 end
