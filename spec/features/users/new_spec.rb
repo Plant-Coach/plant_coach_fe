@@ -29,5 +29,20 @@ RSpec.describe 'New Users Form' do
 
       expect(current_path).to eq("/dashboard")
     end
+
+    it 'will return an error if I fill out the creation form incorrectly' do
+      visit "/users/new"
+
+      fill_in :name, with: "Joel"
+      fill_in :email, with: "test@email.com"
+      fill_in :zip_code, with: "80000"
+      fill_in :password, with: "BAD PASSWORD"
+      fill_in :password_confirmation, with: "12345"
+      click_button "Create Account"
+
+      expect(current_path).to eq("/users/new")
+
+      expect(page).to have_content("Your passwords must match!")
+    end
   end
 end
