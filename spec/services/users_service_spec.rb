@@ -11,7 +11,7 @@ RSpec.describe UsersService do
         password_confirmation: '12345'
       }
       response = File.read("spec/fixtures/create_user.json")
-      # WebMock.allow_net_connect!
+
       stub_request(:post, "https://stormy-chamber-46446.herokuapp.com/api/v1/users").
          with(
            body: {"email"=>"joel123456@test.com", "name"=>"Joel Grant", "password"=>"12345", "password_confirmation"=>"12345", "zip_code"=>"80000"},
@@ -23,7 +23,7 @@ RSpec.describe UsersService do
            }).
          to_return(status: 200, body: response, headers: {})
       new_user = UsersService.create_new_user(user)
-      # require 'pry'; binding.pry
+      
       expect(new_user).to be_a Hash
       expect(new_user[:user]).to be_a Hash
       expect(new_user[:user]).to have_key(:data)
