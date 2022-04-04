@@ -1,4 +1,5 @@
 {
+  "user": {
     "data": {
         "id": "5",
         "type": "user",
@@ -9,4 +10,6 @@
             "zip_code": "90210"
         }
     }
+  },
+  "jwt": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyM30.8OunVrq2dMUSn3ZFidmGFEoDOpTTfiHO7SzmP5uy89M"
 }
