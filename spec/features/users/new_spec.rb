@@ -32,7 +32,7 @@ RSpec.describe 'New Users Form' do
 
     it 'will return an error if I fill out the creation form incorrectly' do
       visit "/users/new"
-
+      WebMock.allow_net_connect!
       fill_in :name, with: "Joel"
       fill_in :email, with: "test@email.com"
       fill_in :zip_code, with: "80000"
