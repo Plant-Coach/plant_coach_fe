@@ -28,37 +28,6 @@ RSpec.describe 'Welcome Page' do
         click_button "Log In"
         expect(current_path).to eq("/login")
 
-      #   body = {
-      #   name: 'Joel Grant',
-      #   email: 'joel@plantcoach.com',
-      #   zip_code: '80121',
-      #   password: '12345',
-      #   password_confirmation: '12345'
-      # }
-      # post '/api/v1/users', params: body
-      # result = JSON.parse(response.body, symbolize_names: true)
-      #
-      #   user = {
-      #     name: 'Joel Grant',
-      #     email: 'joelabcde@test.com',
-      #     zip_code: '80000',
-      #     password: '12345',
-      #     password_confirmation: '12345'
-      #   }
-      #   response = File.read("spec/fixtures/create_user.json")
-      #   # post '/api/v1/user',
-      #   stub_request(:post, "https://stormy-chamber-46446.herokuapp.com/api/v1/users").
-      #      with(
-      #        body: {"email"=>"joelabcde@test.com", "name"=>"Joel Grant", "password"=>"12345", "password_confirmation"=>"12345", "zip_code"=>"80000"},
-      #        headers: {
-      #    	  'Accept'=>'*/*',
-      #    	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-      #    	  'Content-Type'=>'application/x-www-form-urlencoded',
-      #    	  'User-Agent'=>'Faraday v2.2.0'
-      #        }).
-      #      to_return(status: 200, body: response, headers: {})
-      #
-      #   new_user = UsersService.create_new_user(user)
         WebMock.allow_net_connect!
         fill_in :email, with: "joel@plantcoach.com"
         fill_in :password, with: "12345"
