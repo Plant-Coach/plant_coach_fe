@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     user_data = SessionFacade.user_login(session_params)
     session[:user_id] = user_data[:user][:data][:id]
     session[:auth] = user_data[:jwt]
+    session[:user_data] = user_data[:user][:data][:attributes]
     redirect_to controller: 'dashboard', action: 'index'
   end
 
