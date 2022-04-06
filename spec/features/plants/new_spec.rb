@@ -29,7 +29,7 @@ RSpec.describe 'Create a new Plant Form' do
 
         expect(current_path).to eq("/plants")
 
-        # expect(page).to have_content("Atlantic Giant")
+        expect(page).to have_content("Atlantic Giant")
       end
     end
   end
