@@ -1,0 +1,18 @@
+<%= form_with url: '/plants', local: true do |f| %>
+  <%= form.label :plant_type %>
+  <%= form.text_field :plant_type %>
+
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :days_relative_to_frost_date %>
+  <%= form.text_field :days_relative_to_frost_date %>
+
+  <%= form.label :days_to_maturity %>
+  <%= form.text_field :days_to_maturity %>
+
+  <%= form.label :hybrid_status %>
+  <%= form.text_field :hybrid_status %>
+
+  <%= form.submit "Create Plant" %>
+<% end %>
