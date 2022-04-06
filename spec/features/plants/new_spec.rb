@@ -27,7 +27,7 @@ RSpec.describe 'Create a new Plant Form' do
         fill_in :hybrid_status, with: 1
         click_button "Create Plant"
 
-        expect(current_page).to eq("/plants")
+        expect(current_path).to eq("/plants")
 
         expect(page).to have_content("Atlantic Giant")
       end
