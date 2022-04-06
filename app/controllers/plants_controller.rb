@@ -1,6 +1,10 @@
 class PlantsController < ApplicationController
   def index
-
+    if !session[:auth].nil?
+      @plants = PlantFacade.all_plants(session[:auth])
+    else
+      redirect_to '/', "Please log in."
+    end
   end
 
   def new
@@ -12,7 +16,7 @@ class PlantsController < ApplicationController
       result = PlantService.create_plants(plant_params, session[:auth])
       redirect_to '/plants'
     else
-      redirect_to '/', notice: "You must be logged in!"
+      redirect_to '/', notice: "Please log in."
     end
   end
 
