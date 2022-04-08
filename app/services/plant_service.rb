@@ -36,4 +36,13 @@ class PlantService
     response = conn.post("/api/v1/user_plants")
     JSON.parse(response.body, symbolize_names: true)
   end
+
+  def self.destroy_user_plant(plant_id, jwt)
+    conn = Faraday.new(
+      url: "https://stormy-chamber-46446.herokuapp.com",
+      headers: { Authorization: "Bearer #{jwt}" }
+    )
+    response = conn.delete("/api/v1/user_plants/#{plant_id}")
+    JSON.parse(response.body, symbolize_names: true)
+  end
 end
