@@ -1,6 +1,7 @@
 <%= button_to "Create a New Plant", "/plants/new", method: :get %>
 <%= button_to "Return to My Dashboard", "/dashboard", method: :get %>
 <% @plants.each do |plant| %>
-  <%= plant.name %>
+  <p><%= plant.name %>
+    <%= plant.plant_type %></p>
   <%= button_to "Add #{plant.name} #{plant.plant_type} to my Garden", '/user_plants', params: { plant_id: plant.id }  %>
 <% end %>
