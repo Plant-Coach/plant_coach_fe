@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe PlantService do
   describe '::get_a_users_plants' do
     it 'returns the plants that a user has selected to plant' do
+      WebMock.allow_net_connect!
       login_params = { email: 'joel@plantcoach.com', password: '12345' }
       login_response = SessionService.user_login(login_params)
       data = PlantService.get_a_users_plants(login_response[:jwt])

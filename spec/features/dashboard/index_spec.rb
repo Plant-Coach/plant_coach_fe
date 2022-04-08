@@ -9,7 +9,7 @@ RSpec.describe 'User Dashboard' do
       expect(page).to have_content("You must log in!")
     end
   end
-
+  
   context 'When I visit the dashboard as an authenticated user' do
     it 'shows me my name and email' do
       visit '/'
@@ -42,6 +42,23 @@ RSpec.describe 'User Dashboard' do
 
       # require 'pry'; binding.pry
       expect(page).to have_content("Joel Grant's Plants")
+    end
+
+    it 'show the plants that the user is going to plant' do
+      visit '/'
+      click_button "Log In"
+      expect(current_path).to eq("/login")
+
+      WebMock.allow_net_connect!
+      fill_in :email, with: "joel@plantcoach.com"
+      fill_in :password, with: "12345"
+      click_button "Log In"
+
+      expect(current_path).to eq("/dashboard")
+
+      expect(page).to have_content("Sungold Tomato")
+      expect(page).to have_content("Jalafuego Pepper")
+      expect(page).to have_content("Rosa Bianca Eggplant")
     end
   end
 end
