@@ -1,3 +1,4 @@
+<%= button_to "Create a New Plant", "/plants/new", method: :get %>
 <%= button_to "Return to My Dashboard", "/dashboard", method: :get %>
 <% @plants.each do |plant| %>
   <%= plant.name %>
