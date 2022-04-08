@@ -59,7 +59,6 @@ RSpec.describe 'Plants Index Page' do
       click_button "Create Plant"
 
       expect(current_path).to eq("/plants")
-      save_and_open_page
       # expect(page).to have_button("Add Sugar Baby Watermelon to my Garden", disabled: false)
 
       # click_button "Add Sugar Baby Watermelon to my Garden"
