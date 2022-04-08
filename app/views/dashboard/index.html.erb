@@ -5,3 +5,6 @@ Email: <%= @user['email'] %>
 
 
 <p><%= @user['name'] %>'s Plants</p>
+<% @user_plants.each do |plant| %>
+  <p><%= plant.name %> <%= plant.plant_type %></p>
+<% end %>
