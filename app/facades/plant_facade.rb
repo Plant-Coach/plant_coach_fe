@@ -17,4 +17,9 @@ class PlantFacade
     plant_data = PlantService.create_user_plants(plant_id, jwt)
     Plant.new(plant_data[:data])
   end
+
+  def self.destroy_user_plant(plant_id, jwt)
+    plant_data = PlantService.destroy_user_plant(plant_id, jwt)
+    
+  end
 end
