@@ -10,3 +10,16 @@ Email: <%= @user['email'] %>
     <%= plant.plant_type %> </p>
   <p><%= button_to "Remove #{plant.name} #{plant.plant_type}", "/user_plants/#{plant.id}", method: :delete %></p>
 <% end %>
+
+
+<p>My Forecast for <%= @user['zip_code'] %></p>
+<% @weekly_forecast.each do |daily_forecast| %>
+  <h3>Day: <%= daily_forecast.date %></h3>
+  <p>High: <%= daily_forecast.high %>ºF</p>
+  <p>Low: <%= daily_forecast.low %> ºF</p>
+  <p>Humidity: <%= daily_forecast.humidity %>%</p>
+  <p>Sunrise: <%= daily_forecast.sunrise %></p>
+  <p>Sunset: <%= daily_forecast.sunset %></p>
+  <p>Conditions: <%= daily_forecast.weather %></p>
+  <p>Wind: <%= daily_forecast.wind %> MPH</p>
+<% end %>
