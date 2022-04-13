@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GrantsPlantsFe</title>
+    <title>Grants Plants</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <% if !session[:auth].nil? %>
+      <%= button_to "Log Out", "/logout", method: :delete %>
+    <% end %>
     <% flash.each do |name, msg| %>
       <%= msg %>
     <% end %>
