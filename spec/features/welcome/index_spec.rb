@@ -56,6 +56,30 @@ RSpec.describe 'Welcome Page' do
 
         expect(current_path).to eq("/dashboard")
       end
+
+      it 'has a button to log out' do
+        visit root_path
+
+        click_button "Log In"
+        expect(current_path).to eq("/login")
+
+        WebMock.allow_net_connect!
+        fill_in :email, with: "joel@plantcoach.com"
+        fill_in :password, with: "12345"
+        click_button "Log In"
+
+        visit '/'
+
+        expect(page).to have_button("Log Out")
+        click_button "Log Out"
+
+        expect(current_path).to eq("/")
+        expect(page).to have_content("You have been successfully logged out.")
+
+        expect(page).to have_button("Log In")
+        expect(page).to have_button("Create a User")
+        expect(page).to_not have_button("Log Out")
+      end
     end
   end
 end
