@@ -106,5 +106,20 @@ RSpec.describe 'User Dashboard' do
       click_button "Add Rosa Bianca Eggplant to my Garden"
       click_button "Return to My Dashboard"
     end
+
+    it 'shows the forecast and weather for the users area' do
+      visit '/'
+      click_button "Log In"
+      expect(current_path).to eq("/login")
+
+      WebMock.allow_net_connect!
+      fill_in :email, with: "joel@plantcoach.com"
+      fill_in :password, with: "12345"
+      click_button "Log In"
+
+      expect(current_path).to eq("/dashboard")
+
+      expect(page).to have_content("My Forecast for 80121")
+    end
   end
 end
