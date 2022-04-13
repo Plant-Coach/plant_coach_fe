@@ -1,4 +1,5 @@
 class Forecast
+  attr_reader :date, :sunrise, :sunset, :high, :low, :humidity, :wind, :weather
   def initialize(data)
     @date = data[:attributes][:date]
     @sunrise = data[:attributes][:sunrise]

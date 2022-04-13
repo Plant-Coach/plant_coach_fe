@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe WeatherService do
   describe '::get_weather' do
-    it 'retrieves the weather data based on the users zip code' do
+    xit 'retrieves the weather data based on the users zip code' do
       zip_code = 80111
       response = File.read("spec/fixtures/get_forecast.json")
       stub_request(:post, "https://stormy-chamber-46446.herokuapp.com/api/v1/forecast").
