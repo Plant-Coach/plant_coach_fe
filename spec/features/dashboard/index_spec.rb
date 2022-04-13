@@ -121,5 +121,21 @@ RSpec.describe 'User Dashboard' do
 
       expect(page).to have_content("My Forecast for 80121")
     end
+
+    it 'has a link to go to the plants index page' do
+      visit '/'
+      click_button "Log In"
+      expect(current_path).to eq("/login")
+
+      WebMock.allow_net_connect!
+      fill_in :email, with: "joel@plantcoach.com"
+      fill_in :password, with: "12345"
+      click_button "Log In"
+
+      expect(current_path).to eq("/dashboard")
+
+      click_button "Plants Index Page"
+      expect(current_path).to eq("/plants")
+    end
   end
 end
