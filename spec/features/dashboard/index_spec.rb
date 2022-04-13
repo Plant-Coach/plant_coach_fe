@@ -44,7 +44,7 @@ RSpec.describe 'User Dashboard' do
       expect(page).to have_content("Joel Grant's Plants")
     end
 
-    it 'show the plants that the user is going to plant' do
+    xit 'show the plants that the user is going to plant' do
       visit '/'
       click_button "Log In"
       expect(current_path).to eq("/login")
@@ -61,7 +61,7 @@ RSpec.describe 'User Dashboard' do
       expect(page).to have_content("Rosa Bianca Eggplant")
     end
 
-    it 'has a button to remove the plant from the users dashboard and planner' do
+    xit 'has a button to remove the plant from the users dashboard and planner' do
       visit '/'
       click_button "Log In"
       expect(current_path).to eq("/login")

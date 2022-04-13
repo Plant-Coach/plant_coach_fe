@@ -8,11 +8,12 @@ RSpec.describe 'Welcome Page' do
         expect(current_path).to eq("/")
       end
 
-      it 'has a button to go to the plant coach app' do
+      it 'only shows the option to create a user or log in' do
         visit root_path
 
-        click_link "Go to Plant Coach"
-        expect(current_path).to eq("/plantcoach")
+        expect(page).to_not have_button("Go to My Dashboard")
+        expect(page).to have_button("Create a User")
+        expect(page).to have_button("Log In")
       end
 
       it 'has a button to create an account' do
@@ -32,6 +33,28 @@ RSpec.describe 'Welcome Page' do
         fill_in :email, with: "joel@plantcoach.com"
         fill_in :password, with: "12345"
         click_button "Log In"
+      end
+
+      it 'shows a button to go to my dashboard when logged in' do
+        visit root_path
+
+        click_button "Log In"
+        expect(current_path).to eq("/login")
+
+        WebMock.allow_net_connect!
+        fill_in :email, with: "joel@plantcoach.com"
+        fill_in :password, with: "12345"
+        click_button "Log In"
+
+        visit '/'
+
+        expect(page).to have_button("Go to My Dashboard")
+        expect(page).to_not have_button("Create a User")
+        expect(page).to_not have_button("Log In")
+
+        click_button "Go to My Dashboard"
+
+        expect(current_path).to eq("/dashboard")
       end
     end
   end
