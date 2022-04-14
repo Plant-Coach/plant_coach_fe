@@ -3,6 +3,13 @@
 Name: <%= @user['name'] %>
 Email: <%= @user['email'] %>
 
+<div id="frost-information">
+  <h2>My Frost Information</h2>
+  <p>Approximate Last Frost (Spring): <%= @frost_data.spring_frost %></p>
+  <p>Approximate First Frost (Fall): <%= @frost_data.fall_frost %></p>
+  <p>Approximate length of frost-free growing:</p>
+  <p>My Location: <%= @frost_data.location_name %> </p>
+</div>
 
 <p><%= @user['name'] %>'s Plants</p>
 <% @user_plants.each do |plant| %>
