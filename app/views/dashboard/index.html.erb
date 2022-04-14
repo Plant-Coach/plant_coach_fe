@@ -1,7 +1,9 @@
-<%= button_to 'Create a New Plant', '/plants/new', method: :get %> |  <%= button_to 'Plants Index Page', '/plants', method: :get %>
-<%= @user['name'] %>'s Dashboard
-Name: <%= @user['name'] %>
-Email: <%= @user['email'] %>
+<div id="header-buttons">
+  <p><%= button_to 'Create a New Plant', '/plants/new', method: :get %> |  <%= button_to 'Plants Index Page', '/plants', method: :get %></p>
+</div>
+<h1><%= @user['name'] %>'s Dashboard</h1>
+<p>Name: <%= @user['name'] %></p>
+<p>Email: <%= @user['email'] %></p>
 
 <div id="frost-information">
   <h2>My Frost Information</h2>
