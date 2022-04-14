@@ -137,5 +137,26 @@ RSpec.describe 'User Dashboard' do
       click_button "Plants Index Page"
       expect(current_path).to eq("/plants")
     end
+
+    it 'has a section for displaying a users frost date information' do
+      visit '/'
+      click_button "Log In"
+      expect(current_path).to eq("/login")
+
+      WebMock.allow_net_connect!
+      fill_in :email, with: "joel@plantcoach.com"
+      fill_in :password, with: "12345"
+      click_button "Log In"
+
+      expect(current_path).to eq("/dashboard")
+
+      within "#frost-information" do
+        expect(page).to have_content("My Frost Information")
+        expect(page).to have_content("Approximate Last Frost (Spring): ")
+        expect(page).to have_content("Approximate First Frost (Fall): ")
+        expect(page).to have_content("Approximate length of frost-free growing:")
+        expect(page).to have_content("My Location: Greenwood Village")
+      end
+    end
   end
 end
