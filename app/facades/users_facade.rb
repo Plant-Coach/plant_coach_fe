@@ -4,4 +4,9 @@ class UsersFacade
     # There needs to be some error handling in case the email address is no good.
     # user_poro = User.new(result[:data][:attributes])
   end
+
+  def self.user_data(jwt)
+    user_data = UsersService.user_data(jwt)
+    User.new(user_data[:data][:attributes])
+  end
 end

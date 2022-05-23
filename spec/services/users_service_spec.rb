@@ -23,7 +23,7 @@ RSpec.describe UsersService do
            }).
          to_return(status: 200, body: response, headers: {})
       new_user = UsersService.create_new_user(user)
-      
+
       expect(new_user).to be_a Hash
       expect(new_user[:user]).to be_a Hash
       expect(new_user[:user]).to have_key(:data)
@@ -36,6 +36,34 @@ RSpec.describe UsersService do
       expect(new_user[:user][:data][:attributes]).to have_key(:name)
       expect(new_user[:user][:data][:attributes]).to have_key(:email)
       expect(new_user[:user][:data][:attributes]).to have_key(:zip_code)
+    end
+  end
+
+  describe '::user_data' do
+    it 'retrieves the basic information of a user based on the JWT' do
+      WebMock.allow_net_connect!
+      login_params = { email: 'joel@plantcoach.com', password: '12345' }
+      login_response = SessionService.user_login(login_params)
+
+      expect(login_response).to be_a Hash
+      expect(login_response).to have_key(:user)
+
+      expect(login_response).to have_key(:jwt)
+
+      result = UsersService.user_data(login_response[:jwt])
+
+      expect(result).to be_a Hash
+      expect(result).to be_a Hash
+      expect(result).to have_key(:data)
+
+      expect(result[:data]).to be_a Hash
+      expect(result[:data]).to have_key(:id)
+      expect(result[:data]).to have_key(:type)
+      expect(result[:data]).to have_key(:attributes)
+      expect(result[:data][:attributes]).to have_key(:id)
+      expect(result[:data][:attributes]).to have_key(:name)
+      expect(result[:data][:attributes]).to have_key(:email)
+      expect(result[:data][:attributes]).to have_key(:zip_code)
     end
   end
 end
