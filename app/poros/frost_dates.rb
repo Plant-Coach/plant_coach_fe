@@ -5,7 +5,15 @@ class FrostDates
     @location_name = data[:data][:attributes][:location_name]
     @lat = data[:data][:attributes][:lat]
     @lon = data[:data][:attributes][:lon]
-    @spring_frost = data[:data][:attributes][:spring_frost].to_date
-    @fall_frost = data[:data][:attributes][:fall_frost].to_date
+    @spring_frost = date_check(data[:data][:attributes][:spring_frost])
+    @fall_frost = date_check(data[:data][:attributes][:fall_frost])
+  end
+
+  def date_check(date_data)
+    if date_data == "0000"
+      return "You don't get frost - lucky you!"
+    else
+      return date_data.to_date
+    end
   end
 end
