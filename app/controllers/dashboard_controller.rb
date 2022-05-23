@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
   def index
-    if session[:user_id] != nil && session[:auth] != nil
-      @user = session[:user_data]
+    if session[:auth] != nil
+      @user = UsersFacade.user_data(session[:auth])
       @user_plants = PlantFacade.all_user_plants(session[:auth])
       @weekly_forecast = WeatherFacade.get_forecast(session[:auth])
       @frost_data = FrostDateFacade.get_frost_dates(session[:auth])
