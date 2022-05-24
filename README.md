@@ -1,24 +1,11 @@
-# README
+# Welcome to Grant's Plants!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+What is Grant's Plants?
+- This is an application made with Ruby on Rails that coaches a user to plan and maintain a vegetable garden.
 
-Things you may want to cover:
+Grant's Plants is made with the following applications and microservices using service-oriented architecture.
+1.  FE: https://github.com/Grants-Plants/grants_plants
+2.  BE: https://github.com/Grants-Plants/plant_coach
+3.  Weather Microservice: https://github.com/Grants-Plants/plant_coach_weather_api
+4.  Frost Data Microservice: https://github.com/Grants-Plants/plant_coach_email_service
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
