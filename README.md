@@ -1,5 +1,7 @@
 # Welcome to Grant's Plants!
 
+https://guarded-hamlet-71694.herokuapp.com/
+
 What is Grant's Plants?
 - This is an application made with Ruby on Rails that coaches a user to plan and maintain a vegetable garden.
 
