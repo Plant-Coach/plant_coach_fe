@@ -14,7 +14,7 @@ RSpec.describe 'Plants Index Page' do
     expect(current_path).to eq("/dashboard")
     # visit '/plants'
   end
-  context 'when I go to the plants index page and see the list of plants' do
+  xcontext 'when I go to the plants index page and see the list of plants' do
     it 'has a button by each plant to add it to my garden' do
       visit '/plants'
       # Based on Seed data from BE Repo

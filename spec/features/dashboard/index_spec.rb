@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'User Dashboard' do
   context 'when I try to visit the /dashboard uri as a visitor' do
-    it 'redirects me to the welcome page and asks me to log in' do
+    xit 'redirects me to the welcome page and asks me to log in' do
       visit '/dashboard'
 
       expect(current_path).to eq('/')
@@ -10,7 +10,7 @@ RSpec.describe 'User Dashboard' do
     end
   end
 
-  context 'When I visit the dashboard as an authenticated user' do
+  xcontext 'When I visit the dashboard as an authenticated user' do
     it 'shows me my name and email' do
       visit '/'
       click_button "Log In"
