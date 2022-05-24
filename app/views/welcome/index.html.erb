@@ -1,6 +1,30 @@
-<% if !session[:auth].nil? %>
-  <%= button_to "Go to My Dashboard", "/dashboard", method: :get  %>
-<% else %>
-  <%= button_to "Create a User", new_user_path, method: :get  %>
-  <%= button_to "Log In", "/login", method: :get  %>
-<% end %>
+<figure class="text-center">
+<h1>
+  <small class="text-muted">Grant's Plants</small>
+</h1>
+</figure>
+<div class="container-fluid bg-dark">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <% if !session[:auth].nil? %>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/dashboard">Go to My Dashboard</a>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/users/new">Create a User</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/login">Login</a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<div class="container-fluid bg-dark">
+  <img src="https://user-images.githubusercontent.com/69736499/169952727-57f82ad8-9cd3-46dd-9364-4edd1ae86830.jpeg" class="img-fluid rounded mx-auto d-block" alt="Grant's Plants">
+</div>
