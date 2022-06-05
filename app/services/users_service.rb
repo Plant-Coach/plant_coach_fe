@@ -14,4 +14,11 @@ class UsersService
     response = conn.get("/api/v1/users")
     JSON.parse(response.body, symbolize_names: true)
   end
+
+  def self.delete_user(id, jwt)
+    conn = Faraday.new(url: "https://stormy-chamber-46446.herokuapp.com",
+      headers: { Authorization: "Bearer: #{jwt}" }
+    )
+    conn.delete("/api/v1/users/#{id}")
+  end
 end
