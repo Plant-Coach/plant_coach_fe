@@ -41,6 +41,7 @@ gem 'rspec_junit_formatter'
 gem 'faraday', '>= 1.8.0'
 gem 'figaro'
 gem 'rack-cors'
+gem 'coderay'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
