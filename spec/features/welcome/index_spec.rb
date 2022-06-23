@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Welcome Page' do
   context "As a visitor" do
-    xcontext "when I visit the home page" do
+    context "when I visit the home page" do
       it "loads" do
         visit '/'
         expect(current_path).to eq("/")
@@ -12,21 +12,21 @@ RSpec.describe 'Welcome Page' do
         visit root_path
 
         expect(page).to_not have_button("Go to My Dashboard")
-        expect(page).to have_button("Create a User")
-        expect(page).to have_button("Log In")
+        expect(page).to have_link("Create a User")
+        expect(page).to have_link("Log In")
       end
 
       it 'has a button to create an account' do
         visit root_path
 
-        click_button "Create a User"
+        click_link "Create a User"
         expect(current_path).to eq("/users/new")
       end
 
       it 'has a login button' do
         visit root_path
 
-        click_button "Log In"
+        click_link "Log In"
         expect(current_path).to eq("/login")
 
         WebMock.allow_net_connect!
@@ -38,7 +38,7 @@ RSpec.describe 'Welcome Page' do
       it 'shows a button to go to my dashboard when logged in' do
         visit root_path
 
-        click_button "Log In"
+        click_link "Log In"
         expect(current_path).to eq("/login")
 
         WebMock.allow_net_connect!
@@ -48,11 +48,11 @@ RSpec.describe 'Welcome Page' do
 
         visit '/'
 
-        expect(page).to have_button("Go to My Dashboard")
-        expect(page).to_not have_button("Create a User")
-        expect(page).to_not have_button("Log In")
+        expect(page).to have_link("Go to My Dashboard")
+        expect(page).to_not have_link("Create a User")
+        expect(page).to_not have_link("Log In")
 
-        click_button "Go to My Dashboard"
+        click_link "Go to My Dashboard"
 
         expect(current_path).to eq("/dashboard")
       end
@@ -60,7 +60,7 @@ RSpec.describe 'Welcome Page' do
       it 'has a button to log out' do
         visit root_path
 
-        click_button "Log In"
+        click_link "Log In"
         expect(current_path).to eq("/login")
 
         WebMock.allow_net_connect!
@@ -76,8 +76,8 @@ RSpec.describe 'Welcome Page' do
         expect(current_path).to eq("/")
         expect(page).to have_content("You have been successfully logged out.")
 
-        expect(page).to have_button("Log In")
-        expect(page).to have_button("Create a User")
+        expect(page).to have_link("Log In")
+        expect(page).to have_link("Create a User")
         expect(page).to_not have_button("Log Out")
       end
     end

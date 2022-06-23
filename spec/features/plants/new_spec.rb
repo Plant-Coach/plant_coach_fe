@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Create a new Plant Form' do
   before(:each) do
     visit '/'
-    click_button "Log In"
+    click_link "Log In"
     expect(current_path).to eq("/login")
 
     WebMock.allow_net_connect!
@@ -12,7 +12,7 @@ RSpec.describe 'Create a new Plant Form' do
     click_button "Log In"
   end
   context 'As an authenticated user' do
-    xcontext 'when they click the button to Create a New Plant' do
+    context 'when they click the button to Create a New Plant' do
       it 'takes them to a page to complete a form' do
         expect(current_path).to eq('/dashboard')
 
