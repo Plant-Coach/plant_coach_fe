@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Plants Index Page' do
   before(:each) do
     visit '/'
-    click_button "Log In"
+    click_link "Log In"
     expect(current_path).to eq("/login")
 
     WebMock.allow_net_connect!
@@ -14,22 +14,13 @@ RSpec.describe 'Plants Index Page' do
     expect(current_path).to eq("/dashboard")
     # visit '/plants'
   end
-  xcontext 'when I go to the plants index page and see the list of plants' do
+  context 'when I go to the plants index page and see the list of plants' do
     it 'has a button by each plant to add it to my garden' do
       visit '/plants'
-      # Based on Seed data from BE Repo
-      # save_and_open_page
-      # expect(page).to have_button("Add Jalafuego Pepper to my Garden", disabled: true)
-      # expect(page).to have_button("Add Rosa Bianca Eggplant to my Garden", disabled: true)
-      # expect(page).to have_button("Add Sungold Tomato to my Garden", disabled: true)
-      # expect(page).to have_button("Add French Breakfast Radish to my Garden", disabled: true)
-      # expect(page).to have_button("Add Provider Pole Bean to my Garden", disabled: true)
-      # expect(page).to have_button("Add Toma Verde Tomatillo to my Garden", disabled: false)
+
       click_button "Add Toma Verde Tomatillo to my Garden"
 
       expect(page).to have_content("Toma Verde Tomatillo has been added to your garden!")
-
-      # expect(page).to have_button("Add Toma Verde Tomatillo to my Garden", disabled: false)
 
       expect(current_path).to eq("/plants")
     end
@@ -59,13 +50,8 @@ RSpec.describe 'Plants Index Page' do
       click_button "Create Plant"
 
       expect(current_path).to eq("/plants")
-      # expect(page).to have_button("Add Sugar Baby Watermelon to my Garden", disabled: false)
 
-      # click_button "Add Sugar Baby Watermelon to my Garden"
-      # expect(page).to have_content("Add Sugar Baby Watermelon to my Garden")
       expect(current_path).to eq("/plants")
-
-      # expect(page).to have_button("Add Sugar Baby Watermelon to my Garden", disabled: true)
     end
   end
 end
